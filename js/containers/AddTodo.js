@@ -21,5 +21,4 @@ const AddTodo = connect(
   mapDispatchToProps
 )(Add)
 
-
 export default AddTodo
