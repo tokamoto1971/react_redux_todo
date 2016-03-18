@@ -1,12 +1,15 @@
+import { handleActions } from 'redux-actions';
+import { ADD_TODO, TOGGLE_TODO } from '../actions/ActionTypes';
+
 const todo = (state, action) => {
   switch (action.type) {
-    case 'ADD_TODO':
+    case ADD_TODO:
       return {
         id: action.id,
         text: action.text,
         completed: false
       }
-    case 'TOGGLE_TODO':
+    case TOGGLE_TODO:
       if (state.id !== action.id) {
         return state
       }
@@ -20,20 +23,18 @@ const todo = (state, action) => {
   }
 }
 
-const todos = (state = [], action) => {
-  switch (action.type) {
-    case 'ADD_TODO':
+const todos = handleActions({
+  ADD_TODO:    (state, action) => {
       return [
         ...state,
         todo(undefined, action)
       ]
-    case 'TOGGLE_TODO':
+  },
+  TOGGLE_TODO: (state, action) => {
       return state.map(t =>
         todo(t, action)
       )
-    default:
-      return state
-  }
-}
+  },
+}, []);
 
 export default todos

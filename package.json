@@ -33,7 +33,7 @@
     "webpack": "^1.12.14"
   },
   "scripts": {
-    "webpack": "NODE_ENV=test webpack",
+    "webpack": "NODE_ENV=test webpack --progress --colors",
     "eslint": "eslint --config ./.eslintrc ./js/*",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register"
   },
