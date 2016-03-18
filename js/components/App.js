@@ -8,8 +8,6 @@ const App = () => (
     <AddTodo />
     <VisibleTodoList />
     <Footer />
-{/*
-*/} 
   </div>
 )
 
